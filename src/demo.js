@@ -17,7 +17,7 @@ class InstancedMouseEffect {
       opts.frequency = 1
     }
     if(opts.mouseSize == null) {
-      opts.mouseSize = 1
+      opts.mouseSize = 0.7
     }
     if(opts.rotationSpeed == null) {
       opts.rotationSpeed = 1
@@ -29,10 +29,10 @@ class InstancedMouseEffect {
       opts.mouseScaling = 0
     }
     if(opts.mouseIndent == null) {
-      opts.mouseIndent = 1
+      opts.mouseIndent = 0.6
     }
     if(opts.color == null) {
-      opts.color = "#1084ff"
+      opts.color = "#44ffd2"
     }
     if(opts.colorDegrade == null) {
       opts.colorDegrade = 1.
@@ -44,8 +44,8 @@ class InstancedMouseEffect {
     let rendering = new Rendering(document.querySelector("#canvas"), false)
     rendering.renderer.shadowMap.enabled = true;
     rendering.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-    rendering.camera.position.z = 40
-    rendering.camera.position.y = 40
+    rendering.camera.position.z = 20
+    rendering.camera.position.y = 20
     rendering.camera.position.x = 40
     rendering.camera.lookAt(new THREE.Vector3(0,0,0))
     this.rendering = rendering;
@@ -93,7 +93,7 @@ class InstancedMouseEffect {
     // DEMO CODE
 
     let grid = 55;
-    let size = .5;
+    let size = .7;
     let gridSize = grid * size
 
     let geometry = new THREE.BoxGeometry(size, size, size);

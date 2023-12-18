@@ -1,6 +1,10 @@
-# Mouse Effect with Three.js Instancing
+# Front-end wrapped
 
-Demo for tutorial on creating interactive mouse effects with Three.js instancing.
+Stats and data from Gjensidige and front-end community in whole. Starting slide background 3D effect is a variation of the mouse Effect with Three.js demo from codrops.
+
+## Mouse Effect with Three.js Instancing
+
+Based on the demo for creating interactive mouse effects with Three.js instancing made by Codrops.
 
 ![Mouse effect](https://tympanus.net/codrops/wp-content/uploads/2023/12/instancing.jpg)
 
