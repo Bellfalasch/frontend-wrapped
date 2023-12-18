@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Wrapped2023 - Page 1</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Avenir+Next:wght@200;400;600&amp;family=Nunito+Sans:wght@200;400;600&amp;family=Fira+Code:wght@200;400;600&amp;display=swap"
+      type="text/css"
+    />
+    <style>
+      body {
+        margin: 0;
+      }
+      .container {
+        background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
+        transition: transform 3s ease-in-out;
+
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      } /*
+      .container:hover {
+        transform: rotate(100deg);
+      }*/
+      h1 {
+        position: absolute;
+        top: 10%;
+        padding: 0.25em;
+        margin: 0;
+        width: 100%;
+        text-align: center;
+
+        font-size: 3.75rem;
+        font-weight: 600;
+        line-height: 5rem;
+        color: aliceblue;
+        text-shadow: #000000ab 0 0 10px;
+        font-family: "Avenir Next", "Nunito Sans", ui-sans-serif, system-ui,
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+          "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+      }
+      canvas {
+        transition: transform 3s ease-in-out;
+        position: absolute;
+        left: 50%;
+      }
+      canvas:hover {
+        transform: rotate(360deg);
+      }
+
+      p {
+        margin-left: -140px;
+        font-family: "Avenir Next", "Nunito Sans", ui-sans-serif, system-ui,
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+          "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+      }
+      .color-legend {
+        display: block;
+      }
+      .color-legend::before {
+        position: absolute;
+        content: "";
+        width: 14px;
+        height: 14px;
+        border: 2px solid white;
+        box-shadow: rgba(45, 35, 66, 0.4) 0px 0px 10px;
+        margin-left: -25px;
+      }
+      .color-legend.first::before {
+        background-color: #00b09b;
+      }
+      .color-legend.second::before {
+        background-color: #0083b0;
+      }
+      .color-legend.third::before {
+        background-color: beige;
+      }
+
+      .button-30 {
+        align-items: center;
+        appearance: none;
+        background-color: #fcfcfd;
+        border-radius: 4px;
+        border-width: 0;
+        box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
+          rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
+        box-sizing: border-box;
+        color: #36395a;
+        cursor: pointer;
+        display: inline-flex;
+        font-family: "JetBrains Mono", monospace;
+        height: 48px;
+        justify-content: center;
+        line-height: 1;
+        list-style: none;
+        overflow: hidden;
+        padding-left: 16px;
+        padding-right: 16px;
+        text-align: left;
+        text-decoration: none;
+        transition: box-shadow 0.15s, transform 0.15s;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        white-space: nowrap;
+        will-change: box-shadow, transform;
+        font-size: 20px;
+
+        position: absolute;
+        z-index: 100;
+        top: 70%;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .button-30:focus {
+        box-shadow: #d6d6e7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
+          rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
+      }
+      .button-30:hover {
+        box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+          rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
+        transform: translateY(-4px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Amount of Forums</h1>
+      <p>
+        <span class="color-legend first">Weekly (9)</span>
+        <span class="color-legend second">Bi-weekly (7)</span>
+        <span class="color-legend third">Collabs (3)</span>
+      </p>
+      <canvas width="400" height="400"></canvas>
+      <form action="/page-2/">
+        <button class="button-30">Give me more</button>
+      </form>
+    </div>
+    <script type="module" src="./page-1.js"></script>
+  </body>
+</html>

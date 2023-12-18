@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mouse Effect with Instancing in Three.js | Demo 1 | Codrops</title>
+    <meta
+      name="description"
+      content="Demo 1 for tutorial on how to create a mouse effect with instancing in Three.js"
+    />
+    <meta
+      name="keywords"
+      content="three.js, instancing, tutorial, mouse effect, interactive, 3d, webgl"
+    />
+    <meta name="author" content="Codrops" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="css/base.css" />
+    <script>
+      document.documentElement.className = "js";
+    </script>
+  </head>
+  <body class="demo-1">
+    <main>
+      <div class="content">
+        <div id="canvas-wrapper"><canvas id="canvas"></canvas></div>
+      </div>
+    </main>
+    <script src="./dist/index.js"></script>
+    <script>
+      new InstancedMouseEffect({
+        speed: 1,
+        frequency: 1,
+        mouseSize: 1,
+        rotationSpeed: 1,
+        color: "#1084ff",
+        colorDegrade: 1.5,
+        shape: "square", // cylinder, torus, icosahedron OR any THREE.Geometry
+      });
+    </script>
+  </body>
+</html>
