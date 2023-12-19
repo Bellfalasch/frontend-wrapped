@@ -1,18 +1,22 @@
-/* CSS */
 @keyframes fall {
     0% { transform: translateY(-100px); opacity: 0; }
     100% { transform: translateY(0); opacity: 1; }
 }
+@keyframes gradient {
+  0% { background-position: 100% 0%; }
+  50% { background-position: 0% 100%; }
+  100% { background-position: 100% 0%; }
+}
 
 body {
   margin: 0;
+  padding-top: 160px;
   background-image: linear-gradient(to right, #a8c0ff, #3f2b96);
-  font-family: "JetBrains Mono", monospace;
 }
 
 h1 {
   position: absolute;
-  top: 10%;
+  top: 7%;
   padding: 0.7rem;
   margin: 0;
   width: 100%;
@@ -38,7 +42,7 @@ h1::before {
   text-shadow: white 1px 1px 0px, white -1px -1px 0px, white 1px -1px 0px,
     white -1px 1px 0px;
   top: 0;
-  left: calc(50% -180px);
+  left: calc(50% -300px);
   transform: translateX(-50%);
   line-height: 100px;
   width: 100px;
@@ -46,25 +50,95 @@ h1::before {
   z-index: 10;
 }
 
+:root {
+  --color-gjensidige: #0083b0;
+  --color-intern: #5cbddd;
+  --color-convert: #226176;
+  --color-consultant: rgb(36, 178, 36);
+}
+
 .falling-block {
+  border-radius: 3px;
+  position: relative;
   animation: fall 1s ease-in-out;
   margin: 10px;
-  padding: 10px;
-  background-color: #0083b0;
+  padding: 18px;
+  background-color: var(--color-gjensidige);
   color: white;
   min-width: 100px;
   text-align: center;
   float: left;
+  font-size: 1.5rem;
+  font-family: "Avenir Next", "Nunito Sans", ui-sans-serif, system-ui,
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
   &.graduate, &.intern {
-    background-color: #7fddfc;
+    background-color: var(--color-intern);
   }
   &.convert {
-    background-color: #226176;
+    background-color: var(--color-convert);
   }
   &.consultant {
-    background-color: rgb(36, 178, 36)
+    background-color: var(--color-consultant);
+  }
+  & .teamname {
+    font-size: 1rem;
+    font-weight: 400;
+    display: block;
   }
 }
+.falling-block::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  background: linear-gradient(45deg, #0083b0, #5cbddd, #226176);
+  background-size: 200%;
+  z-index: -1;
+  animation: gradient 3s linear infinite;
+  border-radius: 5px;
+}
+
+
+.legend {
+  padding-left: 100px;
+  display: block;
+  font-family: "Avenir Next", "Nunito Sans", ui-sans-serif, system-ui,
+  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+  span {
+    display: block;
+    margin-left: 10px;
+  }
+}
+.legend span::before {
+  position: absolute;
+  content: "";
+  width: 14px;
+  height: 14px;
+  border: 2px solid white;
+  box-shadow: rgba(45, 35, 66, 0.4) 0px 0px 10px;
+  margin-left: -25px;
+}
+.legend .consultant::before {
+  background-color: var(--color-consultant);
+}
+.legend .intern::before {
+  background-color: var(--color-intern);
+}
+.legend .gjensidige::before {
+  background-color: var(--color-gjensidige);
+}
+.legend .convert::before {
+  background-color: var(--color-convert);
+}
+
 
 .button-30 {
   align-items: center;
@@ -98,7 +172,7 @@ h1::before {
 
   position: absolute;
   z-index: 100;
-  top: 70%;
+  top: 80%;
   left: 50%;
   transform: translateX(-50%);
 }

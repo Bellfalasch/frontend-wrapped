@@ -1,30 +1,34 @@
 const names = [
-  {name: "Joakim", type: 'gjensidige'},
-  {name: "Alexandra", type: 'gjensidige'},
-  {name:"Daniel", type: 'convert'},
-  {name: "Yamini", type: 'convert'},
-  {name: "Magnus", type: 'gjensidige'},
-  {name: "Marie", type: 'gjensidige'},
-  {name: "Yan", type: 'gjensidige'},
-  {name: "Eirik", type: 'consultant'},
-  {name: "Sander", type: 'graduate'},
-  {name: "Sigmund", type: 'gjensidige'},
-  {name: "Carl Magnus", type: 'consultant'},
-  {name: "Adam", type: 'consultant'},
-  {name: "Andreas", type: 'gjensidige'},
-  {name: "Quang", type: 'gjensidige'},
-  {name: "Dung", type: 'gjensidige'},
-  {name: "Erlend", type: 'intern'},
-  {name: "Odne", type: 'convert'},
-  {name: "Solveig", type: 'consultant'},
+  {name: "Joakim", type: 'gjensidige', country: 'Sweden', team: undefined },
+  {name: "Alexandra", type: 'gjensidige', country: 'Sweden', team: undefined },
+  {name: "Daniel", type: 'convert', team: 'Private, Sales'},
+  {name: "Yamini", type: 'convert', team: 'Sweden'},
+  {name: "Magnus", type: 'gjensidige', team: 'Claims'},
+  {name: "Marie", type: 'gjensidige', team: 'Claims'},
+  {name: "Yan", type: 'gjensidige', team: 'Private, Service'},
+  {name: "Eirik", type: 'consultant', team: 'Builders'},
+  {name: "Sander", type: 'graduate', team: 'Builders'},
+  {name: "Sigmund", type: 'gjensidige', team: 'Mobile App'},
+  {name: "Carl Magnus", type: 'consultant', team: 'Commercial, Sales'},
+  {name: "Adam", type: 'consultant', team: 'Commercial, Sales'},
+  {name: "Andreas", type: 'gjensidige', team: 'Claims'},
+  {name: "Quang", type: 'gjensidige', team: 'Claims'},
+  {name: "Dung", type: 'gjensidige', team: 'Private, Sales'},
+  {name: "Erlend", type: 'intern', team: 'Claims'},
+  {name: "Odne", type: 'convert', team: 'Claims'},
+  {name: "Solveig", type: 'consultant', team: 'Private, Sales'},
 ];
-const delay = 500;
+const delay = 400;
 
 names.forEach((staff, index) => {
-    setTimeout(() => {
-        const block = document.createElement('div');
-        block.className = 'falling-block' + ' ' + staff.type;
-        block.textContent = staff.name;
-        document.body.appendChild(block);
-    }, index * delay);
+  setTimeout(() => {
+      const block = document.createElement('div');
+      block.className = 'falling-block' + ' ' + staff.type;
+      block.textContent = staff.name;
+      const subtitle = document.createElement('span');
+      subtitle.className = 'teamname';
+      subtitle.textContent = staff.country || 'Norway' + ': ' + staff.team;
+      block.appendChild(subtitle);
+      document.body.appendChild(block);
+  }, index * delay);
 });
