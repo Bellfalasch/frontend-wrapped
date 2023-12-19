@@ -1,0 +1,36 @@
+/* CSS */
+@keyframes emerge {
+    0% { transform: scale(0); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes explode {
+    0% { transform: scale(0); opacity: 1; }
+    100% { transform: scale(10); opacity: 0.3; }
+}
+
+h1::before {
+  content: '#4';
+}
+.explode {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8f00ff);
+  border-radius: 50%;
+  animation: explode 10s linear;
+}
+
+.digit {
+  position: absolute;
+  z-index: 2;
+  width: 100px;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  font-size: 5em;
+  animation: emerge 2s ease-in-out;
+}
