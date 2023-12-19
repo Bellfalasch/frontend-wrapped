@@ -1,19 +1,15 @@
- body {
-  margin: 0;
+/* CSS */
+@keyframes fall {
+    0% { transform: translateY(-100px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
 }
-.container {
-  background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
-  transition: transform 3s ease-in-out;
 
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} /*
-.container:hover {
-  transform: rotate(100deg);
-}*/
+body {
+  margin: 0;
+  background-image: linear-gradient(to right, #a8c0ff, #3f2b96);
+  font-family: "JetBrains Mono", monospace;
+}
+
 h1 {
   position: absolute;
   top: 10%;
@@ -33,7 +29,7 @@ h1 {
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 h1::before {
-  content: "#1";
+  content: "#3";
   position: absolute;
   color: black;
   background-color: #0478629c;
@@ -49,42 +45,25 @@ h1::before {
   height: 100px;
   z-index: 10;
 }
-canvas {
-  transition: transform 3s ease-in-out;
-  position: absolute;
-  left: 50%;
-}
-canvas:hover {
-  transform: rotate(360deg);
-}
 
-p {
-  margin-left: -140px;
-  font-family: "Avenir Next", "Nunito Sans", ui-sans-serif, system-ui,
-    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-}
-.color-legend {
-  display: block;
-}
-.color-legend::before {
-  position: absolute;
-  content: "";
-  width: 14px;
-  height: 14px;
-  border: 2px solid white;
-  box-shadow: rgba(45, 35, 66, 0.4) 0px 0px 10px;
-  margin-left: -25px;
-}
-.color-legend.first::before {
-  background-color: #00b09b;
-}
-.color-legend.second::before {
+.falling-block {
+  animation: fall 1s ease-in-out;
+  margin: 10px;
+  padding: 10px;
   background-color: #0083b0;
-}
-.color-legend.third::before {
-  background-color: beige;
+  color: white;
+  min-width: 100px;
+  text-align: center;
+  float: left;
+  &.graduate, &.intern {
+    background-color: #7fddfc;
+  }
+  &.convert {
+    background-color: #226176;
+  }
+  &.consultant {
+    background-color: rgb(36, 178, 36)
+  }
 }
 
 .button-30 {
