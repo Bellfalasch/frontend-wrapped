@@ -1,6 +1,7 @@
 /* CSS */
 @keyframes emerge {
     0% { transform: scale(0); opacity: 0; }
+    99% { transform: scale(1); opacity: 1; }
     100% { transform: scale(1); opacity: 1; }
 }
 
@@ -9,6 +10,9 @@
     100% { transform: scale(10); opacity: 0.3; }
 }
 
+body {
+  overflow: hidden;
+}
 h1::before {
   content: '#4';
 }
@@ -21,7 +25,7 @@ h1::before {
   height: 100px;
   background: radial-gradient(circle, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8f00ff);
   border-radius: 50%;
-  animation: explode 10s linear;
+  animation: explode 6s linear;
 }
 
 .digit {

@@ -1,0 +1,17 @@
+body {
+  overflow: hidden;
+  background-image: linear-gradient(to right, #FFD194, #D1913C);
+}
+h1::before {
+  content: '#5';
+}
+.digit {
+  position: absolute;
+  z-index: 2;
+  width: 100px;
+  text-align: center;
+  top: 0%;
+  left: 50%;
+  font-size: 17em;
+  text-shadow: 0 0 10px #fff;
+}
