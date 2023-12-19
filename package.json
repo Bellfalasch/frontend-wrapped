@@ -5,14 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite ./src ",
-    "build": "vite build ./src --target es2020 --outDir ../dist",
+    "build": "vite build ./src --target es2020 --outDir ../docs",
     "preview": "vite preview"
   },
   "devDependencies": {
     "vite": "^4.4.5"
   },
   "dependencies": {
-    "colorbrewer": "^1.5.6",
     "d3": "^7.8.5",
     "glsl-easings": "^1.0.0",
     "gsap": "^3.12.2",
