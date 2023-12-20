@@ -1,0 +1,75 @@
+@keyframes count {
+    0% { content: "0"; opacity: 0.4; transform: scale(0.3); }
+    5% { content: "1"; }
+    11% { content: "2"; }
+    18% { content: "3"; }
+    26% { content: "4"; }
+    35% { content: "5"; }
+    45% { content: "6"; }
+    56% { content: "7"; }
+    80% { content: "8"; }
+    90% { content: "9"; }
+    100% { content: "9"; opacity: 1; transform: scale(1); }
+}
+
+body {
+  overflow: hidden;
+  background-image: linear-gradient(to right, #ffefba, #ffffff);
+  padding-top: 40px;
+  text-align: center;
+  height: 100vh;
+}
+h1 {
+  position: relative;
+  display: inline;
+  text-shadow: orange 0 0 10px;
+  color: #333;
+}
+h1::before {
+  content: "#7";
+  top: -2px;
+  left: -100px;
+  transform: none;
+}
+
+@keyframes flyInFromLeft {
+    0% { transform: translateX(-500%); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes flyInFromBottom {
+    0% { transform: translateY(500%); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes flyInFromRight {
+    0% { transform: translateX(500%); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+.digit {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  font-size: 15em;
+
+  &.left {
+    animation: flyInFromLeft 5s ease-in-out;
+  }
+  &.middle {
+      animation: flyInFromBottom 5s ease-in-out;
+  }
+  &.right {
+      animation: flyInFromRight 5s ease-in-out;
+  }
+}
+
+.button-30 {
+  position: relative;
+  transform: none;
+  display: block;
+  top: auto;
+  left: auto;
+  margin: 0 auto;
+  margin-top: 40px;
+}
