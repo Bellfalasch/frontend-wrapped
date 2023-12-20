@@ -26,7 +26,7 @@ h1::before {
   text-shadow: white 1px 1px 0px, white -1px -1px 0px, white 1px -1px 0px,
     white -1px 1px 0px;
   top: 0;
-  left: calc(50% -180px);
+  left: calc(50%, -180px);
   transform: translateX(-50%);
   line-height: 100px;
   width: 100px;

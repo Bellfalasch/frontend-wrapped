@@ -6,6 +6,7 @@ import { glslify } from 'vite-plugin-glslify'
 const root = resolve(__dirname, '.');
 
 export default defineConfig({
+  base: '/frontend-wrapped',
   plugins: [glslify()],
   root: root,
   build: {
