@@ -1,7 +1,7 @@
 window.onload = function() {
     const digit = document.createElement('div');
     digit.className = 'digit';
-    digit.textContent = '15';
+    digit.textContent = '15 hours';
     document.body.appendChild(digit);
 
     const fireworks = document.createElement('div');

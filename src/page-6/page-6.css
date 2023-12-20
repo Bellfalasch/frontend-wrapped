@@ -1,28 +1,42 @@
 @keyframes slideInOut {
-    0% { transform: translateX(200%); opacity: 0; }
-    10% { transform: translateX(100%); opacity: 1; }
+    0% { transform: translateX(600%); opacity: 0; }
+    5% { transform: translateX(400%); opacity: 0.3; }
+    10% { transform: translateX(200%); opacity: 1; }
+
     25% { transform: translateX(0); }
-    50% { transform: translateX(-100%); }
-    75% { transform: translateX(-200%); }
-    100% { transform: translateX(-400%); }
+    50% { transform: translateX(-200%); }
+    75% { transform: translateX(-400%); }
+
+    90% { transform: translateX(-600%); opacity: 1; } 
+    95% { transform: translateX(-800%); opacity: 0.7; }
+    100% { transform: translateX(-1000%); opacity: 0; }
 }
 
 body {
   overflow: hidden;
   background-image: linear-gradient(to right, #33001b, #ff0084); 
-  padding-top: 300px;
+  padding-top: 40px;
   text-align: center;
+  height: 100vh;
+}
+h1 {
+  position: relative;
+  display: inline;
 }
 h1::before {
   content: '#6';
+  top: -2px;
+  left: -100px;
+  transform: none;
 }
 
 .speaker-list {
   display: flex;
+  padding-top: 200px;
 }
 article {
-  animation: slideInOut 5s linear infinite;
-
+  animation: slideInOut 35s linear infinite;
+  margin-left: -25px;
   display: flex;
   padding: 1rem;
   position: relative;
@@ -34,6 +48,7 @@ article {
   font-size: 1.5rem;
   font-weight: 400;
   line-height: 150%;
+  min-width: 400px;
 }
 article::before {
   width: calc(100%);
@@ -47,4 +62,14 @@ article::before {
   position: absolute;
   z-index: -1;
   transform: rotate(-2deg);
+}
+
+.button-30 {
+  position: relative;
+  transform: none;
+  display: block;
+  top: auto;
+  left: auto;
+  margin: 0 auto;
+  margin-top: 100px;
 }

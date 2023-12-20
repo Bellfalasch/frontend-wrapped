@@ -1,21 +1,31 @@
-/* CSS */
 @keyframes emerge {
-    0% { transform: scale(0); opacity: 0; }
-    99% { transform: scale(1); opacity: 1; }
-    100% { transform: scale(1); opacity: 1; }
+  0% { transform: scale(0); opacity: 0; }
+  99% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
 }
 
 @keyframes explode {
-    0% { transform: scale(0); opacity: 1; }
-    100% { transform: scale(10); opacity: 0.3; }
+  0% { transform: scale(0); opacity: 1; }
+  100% { transform: scale(10); opacity: 0.3; }
 }
 
 body {
   overflow: hidden;
+  height: 100vh;
+  padding-top: 40px;
+  text-align: center;
+}
+h1 {
+  position: relative;
+  display: inline;
 }
 h1::before {
-  content: '#4';
+  content: "#4";
+  top: -2px;
+  left: -100px;
+  transform: none;
 }
+
 .explode {
   position: absolute;
   z-index: 1;
@@ -31,10 +41,20 @@ h1::before {
 .digit {
   position: absolute;
   z-index: 2;
-  width: 100px;
+  width: 200px;
   text-align: center;
   top: 50%;
   left: 50%;
   font-size: 5em;
   animation: emerge 2s ease-in-out;
+}
+
+.button-30 {
+  position: relative;
+  transform: none;
+  display: block;
+  top: auto;
+  left: auto;
+  margin: 0 auto;
+  margin-top: 100px;
 }

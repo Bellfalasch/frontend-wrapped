@@ -1,10 +1,23 @@
 body {
   overflow: hidden;
   background-image: linear-gradient(to right, #FFD194, #D1913C);
+  padding-top: 40px;
+  text-align: center;
+  height: 100vh;
+}
+h1 {
+  position: relative;
+  display: inline;
+  text-shadow: #fff 0 0 10px;
 }
 h1::before {
-  content: '#5';
+  content: "#5";
+  top: -2px;
+  left: -100px;
+  transform: none;
 }
+
+
 .digit {
   position: absolute;
   z-index: 2;
@@ -14,4 +27,14 @@ h1::before {
   left: 50%;
   font-size: 17em;
   text-shadow: 0 0 10px #fff;
+}
+
+.button-30 {
+  position: relative;
+  transform: none;
+  display: block;
+  top: auto;
+  left: auto;
+  margin: 0 auto;
+  margin-top: 100px;
 }

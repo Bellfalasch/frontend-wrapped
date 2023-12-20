@@ -17,6 +17,7 @@ const names = [
   {name: "Erlend", type: 'intern', team: 'Claims'},
   {name: "Odne", type: 'convert', team: 'Claims'},
   {name: "Solveig", type: 'consultant', team: 'Private, Sales'},
+  {name: "And:", type: 'consultant', team: '... many many more'},
 ];
 const delay = 400;
 
