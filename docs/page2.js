@@ -1,0 +1,1 @@
+import"./modulepreload-polyfill.js";/* empty css           *//* empty css         */const e=document.querySelectorAll("li");e.forEach((o,t)=>{o.style.animation=`fadeInFromRight 0.5s ease-in-out ${t*.5}s forwards`});

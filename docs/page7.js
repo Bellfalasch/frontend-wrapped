@@ -1,0 +1,1 @@
+import"./modulepreload-polyfill.js";/* empty css           *//* empty css         */window.onload=function(){const o=["1","1","1"],n=["left","middle","right"];o.forEach((c,e)=>{const t=document.createElement("div");t.className="digit "+n[e],t.textContent=c,t.style.left=`calc(50% + ${(e-1)*8}rem)`,document.body.appendChild(t)})};
