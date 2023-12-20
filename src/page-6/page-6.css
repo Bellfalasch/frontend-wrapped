@@ -1,6 +1,6 @@
 @keyframes slideInOut {
-    0% { transform: translateX(600%); opacity: 0; }
-    5% { transform: translateX(400%); opacity: 0.3; }
+    0% { transform: translateX(500%); opacity: 0; }
+    5% { transform: translateX(350%); opacity: 0.3; }
     10% { transform: translateX(200%); opacity: 1; }
 
     25% { transform: translateX(0); }
@@ -35,7 +35,7 @@ h1::before {
   padding-top: 200px;
 }
 article {
-  animation: slideInOut 35s linear infinite;
+  animation: slideInOut 40s linear infinite;
   margin-left: -25px;
   display: flex;
   padding: 1rem;
