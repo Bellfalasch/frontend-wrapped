@@ -1,15 +1,18 @@
+@import url("../styled-h1.css");
+@import url("../next-button.css");
+
 @keyframes count {
-    0% { content: "0"; opacity: 0.4; transform: scale(0.3); }
-    5% { content: "1"; }
-    11% { content: "2"; }
-    18% { content: "3"; }
-    26% { content: "4"; }
-    35% { content: "5"; }
-    45% { content: "6"; }
-    56% { content: "7"; }
-    80% { content: "8"; }
-    90% { content: "9"; }
-    100% { content: "9"; opacity: 1; transform: scale(1); }
+  0% { content: "0"; opacity: 0.4; transform: scale(0.3); }
+  5% { content: "1"; }
+  11% { content: "2"; }
+  18% { content: "3"; }
+  26% { content: "4"; }
+  35% { content: "5"; }
+  45% { content: "6"; }
+  56% { content: "7"; }
+  80% { content: "8"; }
+  90% { content: "9"; }
+  100% { content: "9"; opacity: 1; transform: scale(1); }
 }
 
 body {
@@ -33,18 +36,18 @@ h1::before {
 }
 
 @keyframes flyInFromLeft {
-    0% { transform: translateX(-500%); opacity: 0; }
-    100% { transform: translateX(0); opacity: 1; }
+  0% { transform: translateX(-500%); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
 }
 
 @keyframes flyInFromBottom {
-    0% { transform: translateY(500%); opacity: 0; }
-    100% { transform: translateY(0); opacity: 1; }
+  0% { transform: translateY(500%); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
 }
 
 @keyframes flyInFromRight {
-    0% { transform: translateX(500%); opacity: 0; }
-    100% { transform: translateX(0); opacity: 1; }
+  0% { transform: translateX(500%); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
 }
 
 .digit {

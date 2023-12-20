@@ -1,3 +1,6 @@
+@import url("../styled-h1.css");
+@import url("../next-button.css");
+
 @keyframes fall {
     0% { transform: translateY(-100px); opacity: 0; }
     100% { transform: translateY(0); opacity: 1; }

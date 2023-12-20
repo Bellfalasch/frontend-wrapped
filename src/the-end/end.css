@@ -1,3 +1,5 @@
+@import url("../styled-h1.css");
+
 /* Fade in the text at first, and then keep scrolling until midscreen and stop there */
 @keyframes scroll {
   0% { transform: perspective(300px) rotateX(25deg) scale(1.7) translateY(140%); opacity: 0; }

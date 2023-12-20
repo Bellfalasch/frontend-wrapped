@@ -1,3 +1,6 @@
+@import url("../styled-h1.css");
+@import url("../next-button.css");
+
 @keyframes fadeInFromRight {
   0% {
     opacity: 0;
