@@ -15,7 +15,7 @@ window.onload = function() {
   const speeds = [4, 8, 12, 16, 20];
   const sizes = ['1.0rem', '1.5rem', '2rem', '2.5rem', '3rem'];
 
-  for (let i = 0; i < 200; i++) {
+  for (let i = 0; i < 100; i++) {
     const digit = document.createElement('div');
     digit.className = 'digit';
     digit.textContent = Math.floor(Math.random() * 10);
