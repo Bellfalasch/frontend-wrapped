@@ -1,5 +1,5 @@
 @keyframes count {
-    0% { content: "0"; opacity: 0.4; transform: scale(0.3); }
+    0% { content: "0"; opacity: 0.3; transform: scale(0.2); }
     5% { content: "1"; }
     11% { content: "2"; }
     18% { content: "3"; }
@@ -46,7 +46,7 @@ h1::before {
     position: absolute;
     left: -45px;
     z-index: 2;
-    animation: count 10s steps(10);
+    animation: count 10s linear;
   }
 }
 
