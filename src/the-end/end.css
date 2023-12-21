@@ -24,6 +24,7 @@ h1 {
   position: relative;
   display: inline;
   color: #bbb;
+  text-shadow: #8ba3f8e8 0 0 10px;
 }
 h1::before {
   display: none;

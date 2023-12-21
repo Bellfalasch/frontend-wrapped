@@ -2,7 +2,7 @@
 @import url("../next-button.css");
 
 @keyframes count {
-  0% { content: "0"; opacity: 0.3; transform: scale(0.1); }
+  0% { content: "0"; opacity: 0.15; transform: scale(0.1); }
   5% { content: "1"; }
   11% { content: "2"; }
   18% { content: "3"; }
@@ -10,7 +10,7 @@
   35% { content: "5"; }
   45% { content: "6"; }
   56% { content: "7"; }
-  60% { content: "8"; }
+  62% { content: "8"; }
   70% { content: "9"; }
   80% { content: "10"; }
   90% { content: "11"; }
@@ -44,7 +44,9 @@ h1::before {
 }
 .digit::before {
   content: "12";
-  animation: count 10s linear;
+  font-size: 25rem;
+  transform: scale(0.1);
+  animation: count 8s linear;
 }
 .preface {
   font-family: "Avenir Next", "Nunito Sans", ui-sans-serif, system-ui,

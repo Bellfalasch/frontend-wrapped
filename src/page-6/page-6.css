@@ -26,6 +26,7 @@ body {
 h1 {
   position: relative;
   display: inline;
+  text-shadow: #d33e93e8 0 0 10px;
 }
 h1::before {
   content: '#6';
@@ -36,7 +37,7 @@ h1::before {
 
 .speaker-list {
   display: flex;
-  padding-top: 160px;
+  padding-top: 100px;
 }
 article {
   animation: slideInOut 45s linear infinite;

@@ -1,5 +1,6 @@
 @import url("../styled-h1.css");
 @import url("../next-button.css");
+
 @keyframes emerge {
   0% { transform: scale(0); opacity: 0; }
   100% { transform: scale(1); opacity: 1; }
@@ -40,7 +41,8 @@ h1::before {
   text-shadow: white 0 0 6px;
   padding: 0;
   margin: 0;
-  animation: emerge 20s linear;
+  animation: emerge 10s linear 8s forwards;
+  opacity: 0;
 }
 .digit {
   position: absolute;
