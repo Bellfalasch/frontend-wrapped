@@ -12,7 +12,7 @@
   56% { content: "7"; }
   80% { content: "8"; }
   90% { content: "9"; }
-  100% { content: "9"; opacity: 1; transform: scale(1); }
+  100% { content: "10"; opacity: 1; transform: scale(1); }
 }
 
 body {
@@ -37,7 +37,7 @@ h1::before {
 .digit {
   position: relative;
   z-index: 2;
-  width: 100px;
+  width: 200px;
   text-align: center;
   display: block;
   margin: 0 auto;
@@ -45,7 +45,7 @@ h1::before {
   text-shadow: 0 0 10px #fff;
 
   &::before {
-    content: "9";
+    content: "10";
     position: absolute;
     left: -45px;
     z-index: 2;
