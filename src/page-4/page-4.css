@@ -45,7 +45,7 @@ h1::before {
 .digit {
   position: absolute;
   z-index: -1;
-  top: 250px;
+  top: 300px;
   animation: rain 20s linear;
   font-size: 5rem;
   height: 400px;
@@ -56,6 +56,14 @@ h1::before {
 }
 .digit.final.hidden {
   opacity: 0;
+}
+.preface {
+  font-family: "Avenir Next", "Nunito Sans", ui-sans-serif, system-ui,
+  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+  "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 1.4rem;
+  color: white;
 }
 
 /*
