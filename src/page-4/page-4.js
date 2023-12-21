@@ -6,6 +6,21 @@ window.onload = function() {
 };
 */
 
+window.addEventListener('keydown', function(event) {
+  if (event.key === 'ArrowRight') {
+    const form = document.querySelector('form');
+    if (form) {
+      const action = form.getAttribute('action');
+      if (action) {
+        window.location.href = action;
+      }
+    }
+  } else if (event.key === 'ArrowLeft') {
+    window.history.back();
+  }
+});
+
+
 window.onload = function() {
   const speeds = [4, 8, 12, 16, 20];
   const sizes = ['1.0rem', '1.5rem', '2rem', '2.5rem', '3rem'];
