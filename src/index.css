@@ -5,6 +5,7 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
+  background-color: black; /* Removes annoying flash of white as 3D loads on some machines */
 }
 h1,
 h2 {

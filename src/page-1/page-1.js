@@ -1,3 +1,7 @@
+import "../styled-h1.css"
+import "../next-button.css"
+import "./page-1.css"
+
 // Draw a simple SVG pie chart on a canvas, base it on Front-end forum participant stats
 let ctx = document.querySelector("canvas").getContext("2d");
 
