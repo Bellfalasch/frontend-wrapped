@@ -1,4 +1,6 @@
+import "./next-button.css"
 import "./style.css"
+import "./index.css"
 import { gsap } from "gsap"
 
 import { Rendering } from "./rendering"
