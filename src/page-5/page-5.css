@@ -10,9 +10,11 @@
   35% { content: "5"; }
   45% { content: "6"; }
   56% { content: "7"; }
-  80% { content: "8"; }
-  90% { content: "9"; }
-  100% { content: "10"; opacity: 1; transform: scale(1); }
+  60% { content: "8"; }
+  70% { content: "9"; }
+  80% { content: "10"; }
+  90% { content: "11"; }
+  100% { content: "12"; opacity: 1; transform: scale(1); }
 }
 
 body {
@@ -35,22 +37,21 @@ h1::before {
 }
 
 .digit {
-  position: relative;
-  z-index: 2;
-  width: 200px;
   text-align: center;
-  display: block;
   margin: 0 auto;
   font-size: 25rem;
   text-shadow: 0 0 10px #fff;
-
-  &::before {
-    content: "10";
-    position: absolute;
-    left: -45px;
-    z-index: 2;
-    animation: count 10s linear;
-  }
+}
+.digit::before {
+  content: "12";
+  animation: count 10s linear;
+}
+p {
+  font-family: "Avenir Next", "Nunito Sans", ui-sans-serif, system-ui,
+  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+  "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 1.4rem;
 }
 
 .button-30 {
@@ -60,5 +61,5 @@ h1::before {
   top: auto;
   left: auto;
   margin: 0 auto;
-  margin-top: 40px;
+  margin-top: 10px;
 }
