@@ -129,12 +129,12 @@ h1::before {
   -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-
-  span {
-    display: block;
-    margin-left: 10px;
-  }
 }
+.legend span {
+  display: block;
+  margin-left: 10px;
+}
+
 .legend span::before {
   position: absolute;
   content: "";
