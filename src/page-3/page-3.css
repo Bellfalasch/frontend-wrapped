@@ -53,7 +53,7 @@ h1::before {
   animation: fall 1s ease-in-out;
   margin: 10px;
   padding: 18px;
-  background-color: var(--color-gjensidige);
+  background-color: transparent /*var(--color-gjensidige)*/;
   color: white;
   min-width: 100px;
   text-align: center;
@@ -63,7 +63,7 @@ h1::before {
     -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-
+/*
   &.graduate, &.intern {
     background-color: var(--color-intern);
   }
@@ -73,6 +73,7 @@ h1::before {
   &.consultant {
     background-color: var(--color-consultant);
   }
+*/
   & .teamname {
     font-size: 1rem;
     font-weight: 400;
@@ -93,6 +94,26 @@ h1::before {
   z-index: -1;
   animation: gradient 3s linear infinite;
   border-radius: 5px;
+}
+.falling-block::after {
+  content: "";
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 0;
+  height: 0;
+  border-bottom: 35px solid transparent;
+  border-right: 35px solid var(--color-gjensidige);
+  border-top-right-radius: 5px;
+}
+.falling-block.graduate::after, .falling-block.intern::after {
+  border-right-color: var(--color-intern);
+}
+.falling-block.convert::after {
+  border-right-color: var(--color-convert);
+}
+.falling-block.consultant::after {
+  border-right-color: var(--color-consultant);
 }
 
 
