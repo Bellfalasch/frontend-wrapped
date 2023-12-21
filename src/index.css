@@ -53,6 +53,13 @@ h2 {
   font-weight: 400;
 }
 
+.button-30 {
+  position: absolute !important;
+  z-index: 100 !important;
+  top: 70% !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+}
 .button-30:hover {
-  transform: none;
+  background-color: rgb(255, 255, 174);
 }

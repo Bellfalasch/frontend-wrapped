@@ -2,7 +2,7 @@
 @import url("../next-button.css");
 
 @keyframes count {
-  0% { content: "0"; opacity: 0.3; transform: scale(0.2); }
+  0% { content: "0"; opacity: 0.3; transform: scale(0.1); }
   5% { content: "1"; }
   11% { content: "2"; }
   18% { content: "3"; }
@@ -46,7 +46,7 @@ h1::before {
   content: "12";
   animation: count 10s linear;
 }
-p {
+.preface {
   font-family: "Avenir Next", "Nunito Sans", ui-sans-serif, system-ui,
   -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
   "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
@@ -55,11 +55,6 @@ p {
 }
 
 .button-30 {
-  position: relative;
-  transform: none;
-  display: block;
-  top: auto;
-  left: auto;
   margin: 0 auto;
   margin-top: 10px;
 }
