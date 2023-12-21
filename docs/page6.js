@@ -1,0 +1,1 @@
+import"./modulepreload-polyfill.js";window.addEventListener("keydown",function(o){if(o.key==="ArrowRight"){const t=document.querySelector("form");if(t){const i=t.getAttribute("action");i&&(window.location.href=i)}}else o.key==="ArrowLeft"&&window.history.back()});
