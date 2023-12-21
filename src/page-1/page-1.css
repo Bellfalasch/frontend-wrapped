@@ -1,15 +1,34 @@
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes roll-in {
+  0% { opacity: 0; transform: translateX(300%) rotate(360deg); }
+  20% { opacity: 1; transform: translateX(200%) rotate(350deg); }
+  100% { transform: translateX(0) rotate(0deg); }
+}
+
 body {
   margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+  background-color: black;
+}
+main {
   background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
   padding-top: 40px;
   text-align: center;
   overflow: hidden;
   height: 100vh;
+  animation: fade-in 2s ease-in forwards;
+  opacity: 0;
 }
 
 h1 {
   position: relative;
   display: inline;
+  top: auto;
 }
 h1::before {
   content: "#1";
@@ -19,17 +38,17 @@ h1::before {
 }
 
 canvas {
+  animation: roll-in 6s ease-in-out;
   transition: transform 3s ease-in-out;
   position: absolute;
-  left: 50%;
   top: 120px;
 }
 canvas:hover {
-  transform: rotate(360deg);
+  transform: rotate(720deg);
 }
 
 p {
-  margin-left: -140px;
+  margin-left: -280px;
   font-family: "Avenir Next", "Nunito Sans", ui-sans-serif, system-ui,
     -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
@@ -42,7 +61,7 @@ p {
   width: auto;
   max-width: 300px;
   margin: 0 auto;
-  margin-top: 40px;
+  margin-top: 80px;
 }
 .color-legend {
   display: block;
@@ -66,7 +85,6 @@ p {
   background-color: beige;
 }
 
-
 .button-30 {
   position: relative;
   transform: none;
@@ -74,5 +92,5 @@ p {
   top: auto;
   left: auto;
   margin: 0 auto;
-  margin-top: 360px;
+  margin-top: 280px;
 }

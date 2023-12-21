@@ -2,8 +2,8 @@
 @import url("../next-button.css");
 
 @keyframes fall {
-    0% { transform: translateY(-100px); opacity: 0; }
-    100% { transform: translateY(0); opacity: 1; }
+  0% { transform: translateY(-100px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
 }
 @keyframes gradient {
   0% { background-position: 100% 0%; }

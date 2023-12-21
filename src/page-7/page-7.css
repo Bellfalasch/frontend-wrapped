@@ -60,10 +60,10 @@ h1::before {
     animation: flyInFromLeft 5s ease-in-out;
   }
   &.middle {
-      animation: flyInFromBottom 5s ease-in-out;
+    animation: flyInFromBottom 5s ease-in-out;
   }
   &.right {
-      animation: flyInFromRight 5s ease-in-out;
+    animation: flyInFromRight 5s ease-in-out;
   }
 }
 
