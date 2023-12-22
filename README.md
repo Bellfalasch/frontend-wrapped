@@ -4,6 +4,8 @@ Stats and data from Gjensidige and front-end community in whole!
 
 ## Credits
 
+App is deployed to Github pages using default settings to make it absolutely hassle-free.
+
 The starting page background 3D effect is a variation of a simple "rotating cubes" example from https://codepen.io/hootstheowl/pen/xOQVQg by HootsTheOwl. The other one worked locally but refused to work deployed to Github pages.
 
 ~~The starting page background 3D effect is a variation of the mouse Effect with Three.js demo from codrops - https://tympanus.net/codrops/2023/12/13/creating-an-interactive-mouse-effect-with-instancing-in-three-js/. I've titled the camera a bit, used our own color, and adjusted some minor details.~~

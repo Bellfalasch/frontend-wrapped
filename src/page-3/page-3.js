@@ -28,7 +28,7 @@ const names = [
   {name: "Andreas", type: 'gjensidige', team: 'Claims'},
   {name: "Quang", type: 'gjensidige', team: 'Claims'},
   {name: "Dung", type: 'gjensidige', team: 'Private, Sales'},
-  {name: "Erlend", type: 'intern', team: 'Claims'},
+  {name: "Erlend", type: 'intern', country: 'Norway', team: undefined},
   {name: "Odne", type: 'convert', team: 'Claims'},
   {name: "Solveig", type: 'consultant', team: 'Private, Sales'},
 ];
