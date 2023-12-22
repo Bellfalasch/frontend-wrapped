@@ -6,19 +6,6 @@
 * {
   box-sizing: border-box;
 }
-body {
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: black; /* Removes annoying flash of white as 3D loads on some machines */
-  background: #AA076B;
-  background: linear-gradient(
-    to left, #AA076B , #61045F
-  );  
-  text-align: center;
-  height: 100vh;
-  animation: fade-in 1.5s ease-in forwards;
-}
 h1,
 h2 {
   display: inline-block;
@@ -72,7 +59,7 @@ h2 {
   left: 0;
   width: 100%;
   height: 100%;
-  animation: fade-in 5s ease-in forwards;
+  animation: fade-in 8s ease-in forwards;
 }
 
 .button-30 {

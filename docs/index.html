@@ -13,18 +13,64 @@
       type="text/css"
     />
     <link rel="icon" type="image/png" href="/frontend-wrapped/favicon.png" />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #161c2c;
+        background: linear-gradient(to right, #161c2c, #61045f);
+        text-align: center;
+        height: 100vh;
+        animation: fade-in 1.5s ease-in forwards;
+      }
+      #loaded-content {
+        display: none;
+      }
+      #loading {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+        font-size: 100px;
+        color: #fff;
+      }
+      #loading::before {
+        animation: loadingDots 1s infinite;
+        content: "Loading";
+      }
+
+      @keyframes loadingDots {
+        0% {
+          content: "Loading";
+        }
+        25% {
+          content: "Loading.";
+        }
+        50% {
+          content: "Loading..";
+        }
+        75% {
+          content: "Loading...";
+        }
+      }
+    </style>
     <script type="module" crossorigin src="/frontend-wrapped/main.js"></script>
     <link rel="modulepreload" crossorigin href="/frontend-wrapped/modulepreload-polyfill.js">
     <link rel="stylesheet" crossorigin href="/frontend-wrapped/main.css">
     <link rel="stylesheet" crossorigin href="/frontend-wrapped/next-button.css">
   </head>
   <body>
-    <div id="canvas-wrapper"></div>
-    <h1>Front-end Forum</h1>
-    <h2>Wrapped - 2023</h2>
-    <form action="/frontend-wrapped/page-1/">
-      <button class="button-30">Let's begin</button>
-    </form>
+    <div id="loading"></div>
+    <div id="loaded-content">
+      <div id="canvas-wrapper"></div>
+      <h1>Front-end Forum</h1>
+      <h2>Wrapped - 2023</h2>
+      <form action="/frontend-wrapped/page-1/">
+        <button class="button-30">Let's begin</button>
+      </form>
+    </div>
     <!--<script type="module" src="./demo.js"></script>-->
     <!--<script type="module" src="./ocean.js"></script>-->
   </body>

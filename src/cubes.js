@@ -3,6 +3,9 @@ import "./index.css"
 
 import * as THREE from 'three'
 
+document.getElementById('loading').style.display = 'none';
+document.getElementById('loaded-content').style.display = 'block';
+
 // 3D animation by Shawn Scofield - https://codepen.io/hootstheowl/pen/xOQVQg
 class CubeWebGL {
   constructor(props = {}) {
@@ -49,7 +52,7 @@ class CubeWebGL {
     const cube = new THREE.Mesh(
       new THREE.BoxGeometry(2.5, 2.5, 2.5),
       new THREE.MeshBasicMaterial({
-        color: Math.random() * 0x808008 + 0x808080,
+        color: Math.random() * 0x808008 + 0x808080 + 0x808080,
         transparent: true,
         opacity,
       })
@@ -137,7 +140,7 @@ class CubeWebGL {
 
 new CubeWebGL({
   fps: 60,
-  opacity: 0.5,
+  opacity: 0.33,
   count: 100,
   container: document.getElementById('canvas-wrapper')
 });
