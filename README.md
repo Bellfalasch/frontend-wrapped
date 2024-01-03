@@ -20,9 +20,11 @@ The piechart on "Page 1" was a simple SVG created from code, inspired by https:/
 
 ## Installation
 
-Just install, then run dev-mode like so:
+Project is built using `bun`.
+
+Just install all dependencies, then run dev-mode like so:
 
 ```
-yarn
-yarn dev
+bun i
+bun run dev
 ```
