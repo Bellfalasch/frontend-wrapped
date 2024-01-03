@@ -1,42 +1,45 @@
-import "../styled-h1.css"
-import "../next-button.css"
-import "./page-1.css"
+import "../next-button.css";
+import "../styled-h1.css";
+import "./page-1.css";
 
-window.addEventListener('keydown', function(event) {
-  if (event.key === 'ArrowRight') {
-    const form = document.querySelector('form');
-    if (form) {
-      const action = form.getAttribute('action');
-      if (action) {
-        window.location.href = action;
-      }
-    }
-  } else if (event.key === 'ArrowLeft') {
-    window.history.back();
-  }
+window.addEventListener("keydown", (event) => {
+	if (event.key === "ArrowRight") {
+		const form = document.querySelector("form");
+		if (form) {
+			const action = form.getAttribute("action");
+			if (action) {
+				window.location.href = action;
+			}
+		}
+	} else if (event.key === "ArrowLeft") {
+		window.history.back();
+	}
 });
 
 // Draw a simple SVG pie chart on a canvas, base it on Front-end forum participant stats
-let ctx = document.querySelector("canvas").getContext("2d");
+const ctx = document.querySelector("canvas").getContext("2d");
 
 const frontendforums = [
-  { type: "Weekly", total: 9, color: "#00b09b" },
-  { type: "Bi-weekly", total: 7, color: "#0083b0" },
-  { type: "Collabs", total: 3, color: "beige" }
+	{ type: "Weekly", total: 9, color: "#00b09b" },
+	{ type: "Bi-weekly", total: 7, color: "#0083b0" },
+	{ type: "Collabs", total: 3, color: "beige" },
 ];
 
-let sum = 0;
-let totalNumberOfForums = frontendforums.reduce((sum, {total}) => sum + total, 0);
+const sum = 0;
+const totalNumberOfForums = frontendforums.reduce(
+	(sum, { total }) => sum + total,
+	0,
+);
 let currentAngle = 0;
 
-for (let typeValue of frontendforums) {
-    let portionAngle = (typeValue.total / totalNumberOfForums) * 2 * Math.PI;
-    ctx.beginPath();
-    ctx.arc(200, 200, 200, currentAngle, currentAngle + portionAngle);
-    currentAngle += portionAngle;
-    ctx.lineTo(200, 200);
-    ctx.fillStyle = typeValue.color;
-    ctx.fill();
-    ctx.stroke();
-    ctx.strokeStyle = "10px solid black";
+for (const typeValue of frontendforums) {
+	const portionAngle = (typeValue.total / totalNumberOfForums) * 2 * Math.PI;
+	ctx.beginPath();
+	ctx.arc(200, 200, 200, currentAngle, currentAngle + portionAngle);
+	currentAngle += portionAngle;
+	ctx.lineTo(200, 200);
+	ctx.fillStyle = typeValue.color;
+	ctx.fill();
+	ctx.stroke();
+	ctx.strokeStyle = "10px solid black";
 }

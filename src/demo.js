@@ -1,162 +1,163 @@
-import "./next-button.css"
-import "./style.css"
-import "./index.css"
-import { gsap } from "gsap"
+import { gsap } from "gsap";
+import "./index.css";
+import "./next-button.css";
+import "./style.css";
 
-import { Rendering } from "./rendering"
+import { Rendering } from "./rendering";
 
 import * as THREE from "three";
-import RoundedBox from './RoundedBox'
+import RoundedBox from "./RoundedBox";
 
 class InstancedMouseEffect {
-  constructor(opts = {}, follower = null ){
+	constructor(opts = {}, follower = null) {
+		if (opts.speed == null) {
+			opts.speed = 1;
+		}
+		if (opts.frequency == null) {
+			opts.frequency = 1;
+		}
+		if (opts.mouseSize == null) {
+			opts.mouseSize = 0.7;
+		}
+		if (opts.rotationSpeed == null) {
+			opts.rotationSpeed = 1;
+		}
+		if (opts.rotationAmmount == null) {
+			opts.rotationAmmount = 0;
+		}
+		if (opts.mouseScaling == null) {
+			opts.mouseScaling = 0;
+		}
+		if (opts.mouseIndent == null) {
+			opts.mouseIndent = 0.6;
+		}
+		if (opts.color == null) {
+			opts.color = "#44ffd2";
+		}
+		if (opts.colorDegrade == null) {
+			opts.colorDegrade = 1;
+		}
+		if (opts.shape == null) {
+			opts.shape = "square";
+		}
+		// Renderer up
+		const rendering = new Rendering(document.querySelector("#canvas"), false);
+		rendering.renderer.shadowMap.enabled = true;
+		rendering.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+		rendering.camera.position.z = 20;
+		rendering.camera.position.y = 20;
+		rendering.camera.position.x = 40;
+		rendering.camera.lookAt(new THREE.Vector3(0, 0, 0));
+		this.rendering = rendering;
 
+		//  follower = new THREE.Mesh(
+		//    new THREE.BoxGeometry(),
+		//    new THREE.MeshPhysicalMaterial({
+		//      emissive: 0x000000,
+		//      color:  "#ff4080",
+		//      color:  "#2040bb",
+		//      roughness: 0,
+		//      metalness: 0.4
+		//    })
+		//  )
+		// rendering.scene.add(follower)
 
-    if(opts.speed == null) {
-      opts.speed = 1
-    }
-    if(opts.frequency == null) {
-      opts.frequency = 1
-    }
-    if(opts.mouseSize == null) {
-      opts.mouseSize = 0.7
-    }
-    if(opts.rotationSpeed == null) {
-      opts.rotationSpeed = 1
-    }
-    if(opts.rotationAmmount == null) {
-      opts.rotationAmmount = 0
-    }
-    if(opts.mouseScaling == null) {
-      opts.mouseScaling = 0
-    }
-    if(opts.mouseIndent == null) {
-      opts.mouseIndent = 0.6
-    }
-    if(opts.color == null) {
-      opts.color = "#44ffd2"
-    }
-    if(opts.colorDegrade == null) {
-      opts.colorDegrade = 1.
-    }
-    if(opts.shape == null) {
-      opts.shape = "square"
-    }
-    // Renderer up
-    let rendering = new Rendering(document.querySelector("#canvas"), false)
-    rendering.renderer.shadowMap.enabled = true;
-    rendering.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-    rendering.camera.position.z = 20
-    rendering.camera.position.y = 20
-    rendering.camera.position.x = 40
-    rendering.camera.lookAt(new THREE.Vector3(0,0,0))
-    this.rendering = rendering;
+		// let controls = new OrbitControls(rendering.camera, rendering.canvas)
 
+		const uTime = { value: 0 };
 
-    //  follower = new THREE.Mesh(
-    //    new THREE.BoxGeometry(),
-    //    new THREE.MeshPhysicalMaterial({ 
-    //      emissive: 0x000000, 
-    //      color:  "#ff4080", 
-    //      color:  "#2040bb", 
-    //      roughness: 0,
-    //      metalness: 0.4
-    //    })
-    //  )
-    // rendering.scene.add(follower)
+		// Light Setup
+		rendering.scene.add(new THREE.HemisphereLight(0x9f9f9f, 0xffffff, 1));
+		rendering.scene.add(new THREE.AmbientLight(0xffffff, 1));
+		const d2 = new THREE.DirectionalLight(0x909090, 1);
+		rendering.scene.add(d2);
+		d2.position.set(-1, 0.5, 1);
+		d2.position.multiplyScalar(10);
 
-    // let controls = new OrbitControls(rendering.camera, rendering.canvas)
+		const d1 = new THREE.DirectionalLight(0xffffff, 4);
+		rendering.scene.add(d1);
+		d1.position.set(1, 0.5, 1);
+		d1.position.multiplyScalar(10);
 
-    let uTime = { value: 0 };
+		d1.castShadow = true;
+		d1.shadow.camera.left = -10;
+		d1.shadow.camera.right = 10;
+		d1.shadow.camera.top = 10;
+		d1.shadow.camera.bottom = -10;
+		d1.shadow.camera.far = 40;
 
-    // Light Setup
-    rendering.scene.add(new THREE.HemisphereLight(0x9f9f9f, 0xffffff, 1))
-    rendering.scene.add(new THREE.AmbientLight(0xffffff, 1))
-    let d2 = new THREE.DirectionalLight(0x909090, 1)
-    rendering.scene.add(d2)
-    d2.position.set( -1, 0.5,  1)
-    d2.position.multiplyScalar(10)
+		d1.shadow.mapSize.width = 2048;
+		d1.shadow.mapSize.height = 2048;
 
-    let d1 = new THREE.DirectionalLight(0xffffff, 4)
-    rendering.scene.add(d1)
-    d1.position.set( 1, 0.5,  1)
-    d1.position.multiplyScalar(10)
+		// DEMO CODE
 
-    d1.castShadow = true
-    d1.shadow.camera.left = -10
-    d1.shadow.camera.right = 10
-    d1.shadow.camera.top = 10
-    d1.shadow.camera.bottom = -10
-    d1.shadow.camera.far = 40
+		const grid = 55;
+		const size = 0.7;
+		const gridSize = grid * size;
 
-    d1.shadow.mapSize.width = 2048
-    d1.shadow.mapSize.height = 2048
+		let geometry = new THREE.BoxGeometry(size, size, size);
+		geometry = new RoundedBox(size, size, size, 0.1, 4);
+		if (typeof opts.shape == "string") {
+			switch (opts.shape) {
+				case "cylinder":
+					geometry = new THREE.CylinderGeometry(size, size, size);
+					break;
+				case "torus":
+					geometry = new THREE.TorusGeometry(size * 0.5, size * 0.3);
+					break;
+				case "icosahedron":
+					geometry = new THREE.IcosahedronGeometry(size, 0);
+					break;
+			}
+		} else {
+			geometry = opts.shape;
+		}
 
-    // DEMO CODE
+		const material = new THREE.MeshPhysicalMaterial({
+			color: opts.color,
+			metalness: 0,
+			roughness: 0.0,
+		});
+		const mesh = new THREE.InstancedMesh(geometry, material, grid * grid);
 
-    let grid = 55;
-    let size = .7;
-    let gridSize = grid * size
+		mesh.castShadow = true;
+		mesh.receiveShadow = true;
 
-    let geometry = new THREE.BoxGeometry(size, size, size);
-    geometry = new RoundedBox(size, size, size, 0.1, 4);
-    if(typeof(opts.shape) == "string"){
-      switch(opts.shape){
-        case "cylinder":
-          geometry = new THREE.CylinderGeometry(size, size, size);
-        break
-        case "torus":
-          geometry = new THREE.TorusGeometry(size * 0.5, size * 0.3) 
-        break
-        case "icosahedron":
-          geometry = new THREE.IcosahedronGeometry(size, 0)
-        break
-      }
-    } else {
-      geometry = opts.shape;
-    }
+		const totalColor = material.color.r + material.color.g + material.color.b;
+		const color = new THREE.Vector3();
+		const weights = new THREE.Vector3();
+		weights.x = material.color.r;
+		weights.y = material.color.g;
+		weights.z = material.color.b;
+		weights.divideScalar(totalColor);
+		weights.multiplyScalar(-0.5);
+		weights.addScalar(1);
 
+		const dummy = new THREE.Object3D();
 
-    let material = new THREE.MeshPhysicalMaterial({ color: opts.color, metalness: 0., roughness: 0.0 })
-    let mesh = new THREE.InstancedMesh(geometry, material, grid * grid);
+		let i = 0;
+		for (let x = 0; x < grid; x++)
+			for (let y = 0; y < grid; y++) {
+				dummy.position.set(
+					x * size - gridSize / 2 + size / 2,
+					0,
+					y * size - gridSize / 2 + size / 2,
+				);
 
-    mesh.castShadow = true
-    mesh.receiveShadow = true
+				dummy.updateMatrix();
+				mesh.setMatrixAt(i, dummy.matrix);
 
+				const center = 1 - dummy.position.length() * 0.12 * opts.colorDegrade;
+				color.set(
+					center * weights.x + (1 - weights.x),
+					center * weights.y + (1 - weights.y),
+					center * weights.z + (1 - weights.z),
+				);
+				mesh.setColorAt(i, color);
 
-    const totalColor = material.color.r + material.color.g + material.color.b;
-    const color = new THREE.Vector3()
-    const weights = new THREE.Vector3()
-    weights.x = material.color.r
-    weights.y = material.color.g
-    weights.z = material.color.b
-    weights.divideScalar(totalColor)
-    weights.multiplyScalar(-0.5)
-    weights.addScalar(1.)
-
-    let dummy = new THREE.Object3D()
-
-    let i =0;
-    for(let x = 0; x < grid; x++)
-    for(let y = 0; y < grid; y++){
-
-
-      dummy.position.set( 
-        x * size - gridSize /2 + size / 2., 
-        0, 
-        y * size - gridSize/2 + size / 2.,
-      );
-
-      dummy.updateMatrix()
-      mesh.setMatrixAt(i, dummy.matrix)
-
-      let center = 1.- dummy.position.length() * 0.12 * opts.colorDegrade
-      color.set( center * weights.x + (1.-weights.x) , center * weights.y + (1.-weights.y) , center * weights.z + (1.-weights.z))
-      mesh.setColorAt(i,color)
-
-      i++;
-    }
-      let vertexHead = glsl`
+				i++;
+			}
+		const vertexHead = glsl`
 
       uniform float uTime;
       uniform float uAnimate;
@@ -193,8 +194,8 @@ class InstancedMouseEffect {
         #pragma glslify: ease = require(glsl-easings/cubic-in-out)
         #pragma glslify: ease = require(glsl-easings/cubic-out)
       void main(){
-    `
-    let projectVertex = glsl`
+    `;
+		const projectVertex = glsl`
 
             vec4 position = instanceMatrix[3];
             float toCenter = length(position.xz) ;
@@ -235,128 +236,152 @@ class InstancedMouseEffect {
             mvPosition = modelViewMatrix * mvPosition;
 
             gl_Position = projectionMatrix * mvPosition;
-    `
-    let uniforms = {
-      uTime: uTime,
-      uPos0: {value: new THREE.Vector2()},
-      uPos1: {value: new THREE.Vector2()},
-      uAnimate: {value: 0},
-      uConfig: { value: new THREE.Vector4(opts.speed, opts.frequency, opts.mouseSize, opts.rotationSpeed)},
-      uConfig2: { value: new THREE.Vector4(opts.rotationAmmount, opts.mouseScaling, opts.mouseIndent)}
-    }
-    mesh.material.onBeforeCompile = (shader)=>{
-      shader.vertexShader = shader.vertexShader.replace("void main() {", vertexHead)
-      shader.vertexShader = shader.vertexShader.replace("#include <project_vertex>", projectVertex)
-      shader.uniforms = {
-        ...shader.uniforms, 
-        ...uniforms,
-      }
-    }
+    `;
+		const uniforms = {
+			uTime: uTime,
+			uPos0: { value: new THREE.Vector2() },
+			uPos1: { value: new THREE.Vector2() },
+			uAnimate: { value: 0 },
+			uConfig: {
+				value: new THREE.Vector4(
+					opts.speed,
+					opts.frequency,
+					opts.mouseSize,
+					opts.rotationSpeed,
+				),
+			},
+			uConfig2: {
+				value: new THREE.Vector4(
+					opts.rotationAmmount,
+					opts.mouseScaling,
+					opts.mouseIndent,
+				),
+			},
+		};
+		mesh.material.onBeforeCompile = (shader) => {
+			shader.vertexShader = shader.vertexShader.replace(
+				"void main() {",
+				vertexHead,
+			);
+			shader.vertexShader = shader.vertexShader.replace(
+				"#include <project_vertex>",
+				projectVertex,
+			);
+			shader.uniforms = {
+				...shader.uniforms,
+				...uniforms,
+			};
+		};
 
+		mesh.customDepthMaterial = new THREE.MeshDepthMaterial();
+		mesh.customDepthMaterial.onBeforeCompile = (shader) => {
+			shader.vertexShader = shader.vertexShader.replace(
+				"void main() {",
+				vertexHead,
+			);
+			shader.vertexShader = shader.vertexShader.replace(
+				"#include <project_vertex>",
+				projectVertex,
+			);
+			shader.uniforms = {
+				...shader.uniforms,
+				...uniforms,
+			};
+		};
+		mesh.customDepthMaterial.depthPacking = THREE.RGBADepthPacking;
+		rendering.scene.add(mesh);
 
-    mesh.customDepthMaterial = new THREE.MeshDepthMaterial()
-    mesh.customDepthMaterial.onBeforeCompile = (shader)=>{
-      shader.vertexShader = shader.vertexShader.replace("void main() {", vertexHead)
-      shader.vertexShader = shader.vertexShader.replace("#include <project_vertex>", projectVertex)
-      shader.uniforms = {
-        ...shader.uniforms, 
-        ...uniforms,
-      }
-    }
-    mesh.customDepthMaterial.depthPacking = THREE.RGBADepthPacking
-    rendering.scene.add(mesh)
+		const t1 = gsap.timeline();
+		t1.to(
+			uniforms.uAnimate,
+			{
+				value: 1,
+				duration: 3.0,
+				ease: "none",
+			},
+			0.0,
+		);
+		if (follower) {
+			t1.from(
+				follower.scale,
+				{ x: 0, y: 0, z: 0, duration: 1, ease: "back.out" },
+				1,
+			);
+		}
+		this.animation = t1;
 
+		// Events
+		const hitplane = new THREE.Mesh(
+			new THREE.PlaneGeometry(),
+			new THREE.MeshBasicMaterial(),
+		);
+		hitplane.scale.setScalar(20);
+		hitplane.rotation.x = -Math.PI / 2;
+		hitplane.updateMatrix();
+		hitplane.updateMatrixWorld();
+		const raycaster = new THREE.Raycaster();
 
-    let t1= gsap.timeline()
-    t1.to(uniforms.uAnimate, {
-      value: 1,
-      duration: 3.0,
-      ease: "none"
-    }, 0.0)
-    if(follower){
+		const mouse = new THREE.Vector2();
+		const v2 = new THREE.Vector2();
+		window.addEventListener("mousemove", (ev) => {
+			const x = ev.clientX / window.innerWidth - 0.5;
+			const y = ev.clientY / window.innerHeight - 0.5;
 
-    t1.from(follower.scale, 
-        {x: 0, y: 0, z: 0, duration: 1, ease: "back.out"},
-        1,
-      )
-    }
-    this.animation = t1;
+			v2.x = x * 2;
+			v2.y = -y * 2;
+			raycaster.setFromCamera(v2, rendering.camera);
 
-    // Events
-    const hitplane = new THREE.Mesh(
-      new THREE.PlaneGeometry(),
-      new THREE.MeshBasicMaterial()
-    ) 
-    hitplane.scale.setScalar(20)
-    hitplane.rotation.x = -Math.PI/2
-    hitplane.updateMatrix()
-    hitplane.updateMatrixWorld()
-    let raycaster = new THREE.Raycaster()
+			const intersects = raycaster.intersectObject(hitplane);
 
-    let mouse = new THREE.Vector2()
-    let v2 = new THREE.Vector2()
-    window.addEventListener('mousemove', (ev)=>{
-      let x = ev.clientX / window.innerWidth - 0.5
-      let y = ev.clientY / window.innerHeight - 0.5
+			if (intersects.length > 0) {
+				const first = intersects[0];
+				mouse.x = first.point.x;
+				mouse.y = first.point.z;
+				// mouse.copy(first.point)
+			}
+		});
 
-      v2.x = x *2;
-      v2.y = -y *2;
-      raycaster.setFromCamera(v2,rendering.camera)
+		const vel = new THREE.Vector2();
+		const tick = (t, delta) => {
+			uTime.value = t;
 
-      let intersects = raycaster.intersectObject(hitplane)
+			const v3 = new THREE.Vector2();
+			v3.copy(mouse);
+			v3.sub(uniforms.uPos0.value);
+			v3.multiplyScalar(0.08);
+			uniforms.uPos0.value.add(v3);
 
-      if(intersects.length > 0){
-        let first = intersects[0]
-        mouse.x = first.point.x
-        mouse.y = first.point.z
-        // mouse.copy(first.point)
-      }
+			// Calculate the change/velocity
+			v3.copy(uniforms.uPos0.value);
+			v3.sub(uniforms.uPos1.value);
+			v3.multiplyScalar(0.05);
 
-    })
+			// Lerp the change as well
+			v3.sub(vel);
+			v3.multiplyScalar(0.05);
+			vel.add(v3);
 
-    let vel = new THREE.Vector2()
-    const tick = (t, delta)=>{
-      uTime.value = t 
+			// Add the lerped velocity
+			uniforms.uPos1.value.add(vel);
 
-      let v3 = new THREE.Vector2()
-      v3.copy(mouse)
-      v3.sub(uniforms.uPos0.value)
-      v3.multiplyScalar(0.08)
-      uniforms.uPos0.value.add(v3)
+			if (follower) {
+				follower.position.x = uniforms.uPos0.value.x;
+				follower.position.z = uniforms.uPos0.value.y;
+				follower.rotation.x = t;
+				follower.rotation.y = t;
+			}
 
-      // Calculate the change/velocity
-      v3.copy(uniforms.uPos0.value)
-      v3.sub(uniforms.uPos1.value)
-      v3.multiplyScalar(0.05)
+			rendering.render();
+		};
 
-      // Lerp the change as well
-      v3.sub(vel)
-      v3.multiplyScalar(0.05)
-      vel.add(v3)
-
-      // Add the lerped velocity
-      uniforms.uPos1.value.add(vel)
-
-      if(follower ){
-        follower.position.x = uniforms.uPos0.value.x
-        follower.position.z = uniforms.uPos0.value.y
-        follower.rotation.x = t 
-        follower.rotation.y = t 
-      }
-
-      rendering.render()
-
-    }
-
-    gsap.ticker.add(tick)
-
-  }
+		gsap.ticker.add(tick);
+	}
 }
 
-if(process.env.NODE_ENV === "development"){
-  new InstancedMouseEffect()
+if (process.env.NODE_ENV === "development") {
+	new InstancedMouseEffect();
 }
 
-export default InstancedMouseEffect
+export default InstancedMouseEffect;
 
-window.InstancedMouseEffect = InstancedMouseEffect
+window.InstancedMouseEffect = InstancedMouseEffect;
