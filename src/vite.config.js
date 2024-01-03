@@ -23,9 +23,9 @@ export default defineConfig({
 				theend: resolve(root, "the-end", "index.html"),
 			},
 			output: {
-				entryFileNames: `[name].js`,
-				chunkFileNames: `[name].js`,
-				assetFileNames: `[name].[ext]`,
+				entryFileNames: "[name].js",
+				chunkFileNames: "[name].js",
+				assetFileNames: "[name].[ext]",
 			},
 		},
 	},

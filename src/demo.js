@@ -97,7 +97,7 @@ class InstancedMouseEffect {
 
 		let geometry = new THREE.BoxGeometry(size, size, size);
 		geometry = new RoundedBox(size, size, size, 0.1, 4);
-		if (typeof opts.shape == "string") {
+		if (typeof opts.shape === "string") {
 			switch (opts.shape) {
 				case "cylinder":
 					geometry = new THREE.CylinderGeometry(size, size, size);

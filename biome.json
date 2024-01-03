@@ -8,5 +8,9 @@
 		"rules": {
 			"recommended": true
 		}
+	},
+	"files": {
+		"include": ["src/**/*.js", "src/**/*.css", "src/**/*.html"],
+		"ignore": ["src/.vite/**/*.js", "src/vite.config.js.timestamp*"]
 	}
 }
