@@ -34,15 +34,16 @@ const names = [
 ];
 const delay = 400;
 
-names.forEach((staff, index) => {
+for (let i = 0; i < names.length; i++) {
+	const staff = names[i];
 	setTimeout(() => {
 		const block = document.createElement("div");
-		block.className = "falling-block" + " " + staff.type;
+		block.className = `falling-block ${staff.type}`;
 		block.textContent = staff.name;
 		const subtitle = document.createElement("span");
 		subtitle.className = "teamname";
-		subtitle.textContent = staff.country || "Norway" + ": " + staff.team;
+		subtitle.textContent = staff.country || `Norway: ${staff.team}`;
 		block.appendChild(subtitle);
 		document.body.appendChild(block);
-	}, index * delay);
-});
+	}, i * delay);
+}
