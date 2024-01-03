@@ -1,3 +1,5 @@
+import "../keyboard.js";
+
 /*
 window.onload = function() {
     const fireworks = document.createElement('div');
@@ -5,20 +7,6 @@ window.onload = function() {
     document.body.appendChild(fireworks);
 };
 */
-
-window.addEventListener("keydown", (event) => {
-	if (event.key === "ArrowRight") {
-		const form = document.querySelector("form");
-		if (form) {
-			const action = form.getAttribute("action");
-			if (action) {
-				window.location.href = action;
-			}
-		}
-	} else if (event.key === "ArrowLeft") {
-		window.history.back();
-	}
-});
 
 window.onload = () => {
 	const speeds = [4, 8, 12, 16, 20];
@@ -28,9 +16,10 @@ window.onload = () => {
 		const digit = document.createElement("div");
 		digit.className = "digit";
 		digit.textContent = Math.floor(Math.random() * 10);
-		digit.style.left = Math.random() * window.innerWidth + "px";
-		digit.style.animationDuration =
-			speeds[Math.floor(Math.random() * speeds.length)] + "s";
+		digit.style.left = `${Math.random() * window.innerWidth}px`;
+		digit.style.animationDuration = `${
+			speeds[Math.floor(Math.random() * speeds.length)]
+		}s`;
 		digit.style.fontSize = sizes[Math.floor(Math.random() * sizes.length)];
 		document.body.appendChild(digit);
 	}

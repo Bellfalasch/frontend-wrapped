@@ -1,20 +1,7 @@
+import "../keyboard.js";
 import "../next-button.css";
 import "../styled-h1.css";
 import "./page-1.css";
-
-window.addEventListener("keydown", (event) => {
-	if (event.key === "ArrowRight") {
-		const form = document.querySelector("form");
-		if (form) {
-			const action = form.getAttribute("action");
-			if (action) {
-				window.location.href = action;
-			}
-		}
-	} else if (event.key === "ArrowLeft") {
-		window.history.back();
-	}
-});
 
 // Draw a simple SVG pie chart on a canvas, base it on Front-end forum participant stats
 const ctx = document.querySelector("canvas").getContext("2d");

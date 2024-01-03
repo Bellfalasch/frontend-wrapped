@@ -44,16 +44,18 @@ export function setupControls(palette) {
 		const currentI = palettes.indexOf(palette);
 
 		switch (ev.key) {
-			case "ArrowLeft":
+			case "ArrowLeft": {
 				const prevPalette =
 					currentI - 1 < 0 ? palettes.length - 1 : currentI - 1;
-				window.location.search = "?palette=" + palettes[prevPalette];
+				window.location.search = `?palette=${palettes[prevPalette]}`;
 				// window.location.reload()
 				break;
-			case "ArrowRight":
+			}
+			case "ArrowRight": {
 				const nextPalette = (currentI + 1) % palettes.length;
-				window.location.search = "?palette=" + palettes[nextPalette];
+				window.location.search = `?palette=${palettes[nextPalette]}`;
 				break;
+			}
 		}
 	});
 }
