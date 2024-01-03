@@ -11,6 +11,6 @@
 	},
 	"files": {
 		"include": ["src/**/*.js", "src/**/*.css", "src/**/*.html"],
-		"ignore": ["src/.vite/**/*.js", "src/vite.config.js.timestamp*"]
+		"ignore": ["src/.vite/**/*.js", "src/vite.config.js.timestamp*", "src/RoundedBox.js"]
 	}
 }
