@@ -1,0 +1,1 @@
+window.addEventListener("keydown",o=>{if(o.key==="ArrowRight"){const t=document.querySelector("form");if(t){const e=t.getAttribute("action");e&&(window.location.href=e)}}else o.key==="ArrowLeft"&&window.history.back()});
