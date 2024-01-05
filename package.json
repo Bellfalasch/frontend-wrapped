@@ -1,24 +1,25 @@
 {
-  "name": "frontend-wrapped-gjensidige2023",
-  "private": true,
-  "version": "1.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite ./src ",
-    "build": "vite build ./src --target es2022 --outDir ../docs --emptyOutDir",
-    "preview": "vite preview"
-  },
-  "devDependencies": {
-    "vite": "^5"
-  },
-  "dependencies": {
-    "d3": "^7.8.5",
-    "glsl-easings": "^1.0.0",
-    "gsap": "^3.12.2",
-    "n8ao": "^1.7.0",
-    "postprocessing": "^6.33.3",
-    "stats-js": "^1.0.1",
-    "three": "^0.155.0",
-    "vite-plugin-glslify": "^2.0.2"
-  }
+	"name": "frontend-wrapped-gjensidige2023",
+	"private": true,
+	"version": "1.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite ./src ",
+		"build": "vite build ./src --target es2022 --outDir ../docs --emptyOutDir",
+		"preview": "vite preview",
+		"code:lint": "biome lint ./src",
+		"code:format": "biome format ./src --write",
+		"code:fix:lint": "biome lint ./src --apply",
+		"code:fix:all": "biome check ./src --apply"
+	},
+	"devDependencies": {
+		"vite": "5.0.10",
+		"@biomejs/biome": "1.4.0"
+	},
+	"dependencies": {
+		"glsl-easings": "1.0.0",
+		"postprocessing": "6.34.1",
+		"three": "0.155.0",
+		"vite-plugin-glslify": "2.0.2"
+	}
 }

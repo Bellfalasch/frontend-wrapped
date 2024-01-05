@@ -12,8 +12,6 @@ h2 {
   padding: 0.25em;
   position: relative;
   margin: 0;
-  /*width: 100%;*/
-  /*text-align: center;*/
   position: absolute;
   z-index: 100;
   top: 40%;
@@ -59,7 +57,7 @@ h2 {
   left: 0;
   width: 100%;
   height: 100%;
-  animation: fade-in 8s ease-in forwards;
+  animation: fade-in 6s ease-in forwards;
 }
 
 .button-30 {
